@@ -64,9 +64,26 @@ static void toggle_overlay()
 		pprintf("{FF0000}Overlay disabled.");
 }
 
+static bool str_to_int(char *str, int *val, int base)
+{
+	char *tmp;
+
+	errno = 0;
+	*val = strtol(str, &tmp, 10);
+
+	if (tmp == str || *tmp != '\0' || ((*val == LONG_MIN || *val == LONG_MAX) && errno == ERANGE))
+		return false;
+	else
+		return true;
+}
+
 void CALLBACK cmd_weaponfinder(std::string param)
 {
-	const char *param_str = param.c_str();
+	char *param_str = _strdup(param.c_str());
+	char *tokens[3] = { NULL, NULL };
+	int font_size = 0;
+
+	tokens[0] = strtok(param_str, " ");
 
 	if (param.empty() || !strcmp(param_str, "help"))
 		usage();
@@ -74,6 +91,14 @@ void CALLBACK cmd_weaponfinder(std::string param)
 		version();
 	else if (!strcmp(param_str, "toggle"))
 		toggle_overlay();
+	else if (!strcmp(param_str, "fontsize")) {
+		tokens[1] = strtok(NULL, "\0\n");
+		if (tokens[1] == NULL || !str_to_int(tokens[1], &font_size, 10))
+			usage();
+		else {
+			change_font_size(font_size);
+		}
+	}
 }
 
 void CALLBACK mainloop()

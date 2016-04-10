@@ -10,4 +10,5 @@ struct weapon_node
 	weapon_node *next;
 };
 
+void change_font_size(int val);
 bool CALLBACK draw_text(CONST RECT *pSourceRect, CONST RECT *pDestRect, HWND hDestWindowOverride, CONST RGNDATA *pDirtyRegion);

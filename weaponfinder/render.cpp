@@ -42,6 +42,18 @@ static void hsvtorgb(unsigned char *r, unsigned char *g, unsigned char *b, unsig
 	return;
 }
 
+void change_font_size(int val)
+{
+	if (val < 1 || val > 30) {
+		pprintf("Your font size must be between 1 and 30.");
+	}
+	else {
+		SF->getRender()->ReleaseFont(font);
+		font = SF->getRender()->CreateNewFont("Tahoma", val, FCR_BORDER);
+		pprintf("Font size changed to %d.", val);
+	}
+}
+
 static int find_objects(weapon_node *weps_head)
 {
 	stObjectPool *object_pool = SF->getSAMP()->getInfo()->pPools->pObject;
