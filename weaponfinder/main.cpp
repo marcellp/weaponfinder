@@ -95,7 +95,7 @@ void CALLBACK cmd_weaponfinder(std::string param)
 	else if (!strcmp(param_str, "fontsize")) {
 		tokens[1] = strtok(NULL, "\0\n");
 		if (tokens[1] == NULL || !str_to_int(tokens[1], &font_size, 10))
-			usage();
+			pprintf("/weaponfinder fontsize [1-30]");
 		else {
 			change_font_size(font_size);
 		}
