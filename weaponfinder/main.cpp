@@ -46,6 +46,7 @@ static void usage()
 		PROGRAM_NAME "is a modification for detecting weapon objects on\n"
 		"various San Andreas: Multiplayer servers.\n\n"
 		"\t/weaponfinder toggle\n\t\tenable/disable the overlay\n"
+		"\t/weaponfinder fontsize\n\t\tchange the font size of the overlay\n"
 		HELP_OPTION_DESCRIPTION
 		VERSION_OPTION_DESCRIPTION
 		);
