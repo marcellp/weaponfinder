@@ -120,12 +120,15 @@ static int find_objects(weapon_node *weps_head)
 
 bool CALLBACK draw_text(CONST RECT *pSourceRect, CONST RECT *pDestRect, HWND hDestWindowOverride, CONST RGNDATA *pDirtyRegion)
 {
-	weapon_node *weps_head = (weapon_node*)malloc(sizeof(weapon_node));
-	weapon_node *weps_temp = weps_head;
+	weapon_node *weps_head;
+	weapon_node *weps_temp;
 	CVector2D pos2d;
 
-	if (!overlay_toggle)
+	if (!overlay_toggle || SF->getGame()->isGTAMenuActive())
 		return true;
+
+	weps_head = (weapon_node*)malloc(sizeof(weapon_node));
+	weps_temp = weps_head;
 
 	if (SUCCEEDED(SF->getRender()->BeginRender()) && find_objects(weps_head) != 0) {
 		while (weps_temp != NULL) {
