@@ -115,6 +115,7 @@ void CALLBACK mainloop()
 
 		pprintf("weaponfinder " PROGRAM_VERSION " has been loaded, use /weaponfinder for general help.");
 		SF->getSAMP()->registerChatCommand("weaponfinder", cmd_weaponfinder);
+		SF->getSAMP()->registerChatCommand("wf", cmd_weaponfinder);
 		SF->getRender()->registerD3DCallback(eDirect3DDeviceMethods::D3DMETHOD_PRESENT, draw_text);
 
 		font = SF->getRender()->CreateNewFont("Tahoma", 12, FCR_BORDER);
