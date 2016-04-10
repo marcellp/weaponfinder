@@ -21,13 +21,3 @@
 
 #include "main.hpp"
 #include "render.hpp"
-
-typedef struct weapon_node weapon_node;
-struct weapon_node
-{
-	int modelid;
-	const char *weapon;
-	CVector pos;
-	unsigned char rgb[3];
-	weapon_node *next;
-};

@@ -124,6 +124,9 @@ bool CALLBACK draw_text(CONST RECT *pSourceRect, CONST RECT *pDestRect, HWND hDe
 	weapon_node *weps_temp = weps_head;
 	CVector2D pos2d;
 
+	if (!overlay_toggle)
+		return true;
+
 	if (SUCCEEDED(SF->getRender()->BeginRender()) && find_objects(weps_head) != 0) {
 		while (weps_temp != NULL) {
 			// We have to check if the object is actually on the screen.
