@@ -88,11 +88,11 @@ void CALLBACK cmd_weaponfinder(std::string param)
 
 	if (param.empty() || !strcmpi(param_str, "help"))
 		usage();
-	else if (!strcmpi(param_str, "version"))
+	else if (!_strcmpi(param_str, "version"))
 		version();
-	else if (!strcmpi(param_str, "toggle") || !strcmpi(param_str, "tog"))
+	else if (!_strcmpi(param_str, "toggle") || !_strcmpi(param_str, "tog"))
 		toggle_overlay();
-	else if (!strcmpi(param_str, "fontsize")) {
+	else if (!_strcmpi(param_str, "fontsize")) {
 		tokens[1] = strtok(NULL, "\0\n");
 		if (tokens[1] == NULL || !str_to_int(tokens[1], &font_size, 10))
 			pprintf("/weaponfinder fontsize [1-30]");
