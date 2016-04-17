@@ -150,8 +150,16 @@ bool CALLBACK draw_text(CONST RECT *pSourceRect, CONST RECT *pDestRect, HWND hDe
 				SF->getGame()->convert3DCoordsToScreen(weps_temp->pos.fX, weps_temp->pos.fY, weps_temp->pos.fZ,
 					&pos2d.fX, &pos2d.fY);
 
-				font->Print(weps_temp->weapon, D3DCOLOR_ARGB(255, weps_temp->rgb[0], weps_temp->rgb[1], weps_temp->rgb[2]),
-					pos2d.fX, pos2d.fY, false);
+				if (color_toggle) {
+					font->Print(weps_temp->weapon,
+						D3DCOLOR_ARGB(255, weps_temp->rgb[0], weps_temp->rgb[1], weps_temp->rgb[2]),
+						pos2d.fX, pos2d.fY, false);
+				}
+				else {
+					font->Print(weps_temp->weapon,
+						D3DCOLOR_ARGB(255, 255, 255, 0),
+						pos2d.fX, pos2d.fY, false);
+				}
 			}
 			weps_temp = weps_temp->next;
 		}

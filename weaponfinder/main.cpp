@@ -3,6 +3,7 @@
 SAMPFUNCS *SF = new SAMPFUNCS();
 stFontInfo *font;
 bool overlay_toggle = false;
+bool color_toggle = false;
 
 void pprintf(const char *format, ...)
 {
@@ -46,6 +47,7 @@ static void usage()
 		PROGRAM_NAME "is a modification for detecting weapon objects on\n"
 		"various San Andreas: Multiplayer servers.\n\n"
 		"\t/weaponfinder toggle\n\t\tenable/disable the overlay\n"
+		"\t/weaponfinder color\n\t\tenable/disable the heat map\n"
 		"\t/weaponfinder fontsize\n\t\tchange the font size of the overlay\n"
 		HELP_OPTION_DESCRIPTION
 		VERSION_OPTION_DESCRIPTION
@@ -63,6 +65,16 @@ static void toggle_overlay()
 		pprintf("{00FF00}Overlay enabled.");
 	else
 		pprintf("{FF0000}Overlay disabled.");
+}
+
+static void toggle_color()
+{
+	color_toggle = !color_toggle;
+
+	if (color_toggle)
+		pprintf("{00FF00}Heat map enabled.");
+	else
+		pprintf("{FF0000}Heat map disabled.");
 }
 
 static bool str_to_int(char *str, int *val, int base)
@@ -92,6 +104,8 @@ void CALLBACK cmd_weaponfinder(std::string param)
 		version();
 	else if (!_strcmpi(param_str, "toggle") || !_strcmpi(param_str, "tog"))
 		toggle_overlay();
+	else if (!_strcmpi(param_str, "color"))
+		toggle_color();
 	else if (!_strcmpi(param_str, "fontsize")) {
 		tokens[1] = strtok(NULL, "\0\n");
 		if (tokens[1] == NULL || !str_to_int(tokens[1], &font_size, 10))
@@ -105,8 +119,8 @@ void CALLBACK cmd_weaponfinder(std::string param)
 void CALLBACK mainloop()
 {
 	static bool init = false;
-	if (!init)
-	{
+
+	if (!init) {
 		if (GAME == nullptr)
 			return;
 		if (GAME->GetSystemState() != eSystemState::GS_PLAYING_GAME)

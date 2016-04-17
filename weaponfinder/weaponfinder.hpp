@@ -1,7 +1,7 @@
 #pragma once
 
 #define PROGRAM_NAME "weaponfinder"
-#define PROGRAM_VERSION "1.0"
+#define PROGRAM_VERSION "1.1"
 #define PROGRAM_AUTHORS "Marcell Pek"
 #define PROGRAM_WEBSITE "http://marcellp.github.io"
 #define PROGRAM_BUGREPORT_EMAIL "marcellp0+weaponfinder@gmail.com"
