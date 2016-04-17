@@ -2,6 +2,12 @@ weaponfinder
 ============
 weaponfinder is a modification for detecting weapon objects on San Andreas: Multiplayer servers.
 
+Unlike other modifications that do basically the same thing, weaponfinder is
+* **efficient**: it uses a Direct3D overlay that doesn't affect game performance,
+* **easy to understand and modify**: it's written in C, not SCM,
+* **intuitive**: the color of the GUI overlay changes depending on how close the object is,
+* **customizable**: the font size can be changed at will, making it usable even at low resolutions.
+
 Installation
 ------------
 You need the latest version of SAMPFUNCS to use this mod.
