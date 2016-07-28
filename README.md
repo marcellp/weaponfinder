@@ -23,6 +23,9 @@ Use the */w(eapon)f(inder)* command in-game for general help.
 
 */wf toggle* turns the overlay on or off. */wf fontsize* sets the font size of the GUI. */wf color* turns the heat map on or off.
 
+By default, weaponfinder turns off when a screenshot is being taken (this is bound to F8). If you
+want to disable this feature, use */wf togf8*.
+
 License
 -------
 weaponfinder is an open source project covered by the MIT License. See LICENSE for more information or visit http://opensource.org/licenses/MIT.
