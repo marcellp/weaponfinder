@@ -21,7 +21,7 @@ Help
 ----
 Use the */w(eapon)f(inder)* command in-game for general help.
 
-*/wf toggle* turns the overlay on or off. */wf fontsize* sets the font size of the GUI.
+*/wf toggle* turns the overlay on or off. */wf fontsize* sets the font size of the GUI. */wf color* turns the heat map on or off.
 
 License
 -------
