@@ -4,6 +4,7 @@ SAMPFUNCS *SF = new SAMPFUNCS();
 stFontInfo *font;
 bool overlay_toggle = false;
 bool color_toggle = false;
+bool render_screenshot = false;
 
 void pprintf(const char *format, ...)
 {
@@ -49,6 +50,7 @@ static void usage()
 		"\t/weaponfinder toggle\n\t\tenable/disable the overlay\n"
 		"\t/weaponfinder color\n\t\tenable/disable the heat map\n"
 		"\t/weaponfinder fontsize\n\t\tchange the font size of the overlay\n"
+		"\t/weaponfinder togf8\n\t\tenable/disable the overlay while taking a screenshot (disable by default)\n"
 		HELP_OPTION_DESCRIPTION
 		VERSION_OPTION_DESCRIPTION
 		);
@@ -77,6 +79,16 @@ static void toggle_color()
 		pprintf("{FF0000}Heat map disabled.");
 }
 
+static void toggle_screenshot()
+{
+	render_screenshot = !render_screenshot;
+
+	if (render_screenshot)
+		pprintf("{FF0000}Overlay enabled when taking a screenshot (F8).");
+	else
+		pprintf("{00FF00}Overlay disabled when taking a screenshot (F8).");
+}
+
 static bool str_to_int(char *str, int *val, int base)
 {
 	char *tmp;
@@ -98,7 +110,7 @@ void CALLBACK cmd_weaponfinder(std::string param)
 
 	tokens[0] = strtok(param_str, " ");
 
-	if (param.empty() || !strcmpi(param_str, "help"))
+	if (param.empty() || !_strcmpi(param_str, "help"))
 		usage();
 	else if (!_strcmpi(param_str, "version"))
 		version();
@@ -106,6 +118,8 @@ void CALLBACK cmd_weaponfinder(std::string param)
 		toggle_overlay();
 	else if (!_strcmpi(param_str, "color"))
 		toggle_color();
+	else if (!_strcmpi(param_str, "togf8"))
+		toggle_screenshot();
 	else if (!_strcmpi(param_str, "fontsize")) {
 		tokens[1] = strtok(NULL, "\0\n");
 		if (tokens[1] == NULL || !str_to_int(tokens[1], &font_size, 10))

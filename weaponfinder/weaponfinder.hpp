@@ -3,7 +3,7 @@
 #define PROGRAM_NAME "weaponfinder"
 #define PROGRAM_VERSION "1.1"
 #define PROGRAM_AUTHORS "Marcell Pek"
-#define PROGRAM_WEBSITE "http://marcellp.github.io"
+#define PROGRAM_WEBSITE "http://marcellp.net"
 #define PROGRAM_BUGREPORT_EMAIL "marcellp0+weaponfinder@gmail.com"
 #define HELP_OPTION_DESCRIPTION \
   "\t/weaponfinder help\n\t\tdisplay this help and exit\n"

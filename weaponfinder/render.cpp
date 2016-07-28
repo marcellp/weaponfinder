@@ -136,7 +136,7 @@ bool CALLBACK draw_text(CONST RECT *pSourceRect, CONST RECT *pDestRect, HWND hDe
 	weapon_node *weps_temp;
 	CVector2D pos2d;
 
-	if (!overlay_toggle || SF->getGame()->isGTAMenuActive())
+	if (!overlay_toggle || SF->getGame()->isGTAMenuActive() || (!render_screenshot && GetKeyState(VK_F8) & 0x8000))
 		return true;
 
 	weps_head = (weapon_node*)malloc(sizeof(weapon_node));

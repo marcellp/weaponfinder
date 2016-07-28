@@ -83,8 +83,7 @@
       <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <SubSystem>Windows</SubSystem>
       <DataExecutionPrevention>false</DataExecutionPrevention>
-      <AdditionalDependencies>
-      </AdditionalDependencies>
+      <AdditionalDependencies>User32.lib</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
